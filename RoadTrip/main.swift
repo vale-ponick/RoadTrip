@@ -126,7 +126,7 @@ gameLoop: while true {
         }
 
     case .calculateTotal:
-        print("💰 Общая стоимость поездки: \(totalCostTrip) руб")
+        print(String(format: "💰 Общая стоимость поездки: %.2f руб", totalCostTrip))
 
     case .calculareArrivalTime:
         let time = totalDistanceThere() / averageSpeed
