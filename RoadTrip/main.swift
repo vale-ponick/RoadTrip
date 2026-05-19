@@ -46,7 +46,8 @@ enum Command: String {
     case showTripTime              = "show trip time"
 
     static func from(_ string: String) -> Command? {
-        Command(rawValue: string.lowercased())
+        print("👉 Получено: '\(string)'")
+        return Command(rawValue: string.lowercased())
     }
 }
 
@@ -122,7 +123,7 @@ gameLoop: while true {
     switch cmd {
     case .showRoute:
         for (i, loc) in route.enumerated() {
-            print("\(i + 1). \(loc.name) – \(loc.distanceFromPrevious) км")
+            print(String(format: "%d. %@ - %.0f км", i + 1, loc.name, loc.distanceFromPrevious))
         }
 
     case .calculateTotal:
