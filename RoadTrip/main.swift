@@ -7,8 +7,8 @@ import Foundation
 
 // MARK: - 1️⃣ Описание программы
 print("🚕💨 Road Trip")
-print("📝 Планирование автопутешествия: время убытия/прибытия, города, расстояния, расход и цены на топливо, гостиницу.")
-print("Программа считает общую стоимость поездки (топливо + ночёвки) и время в пути.")
+print("📝 Trip planning: departure/arrival time, cities, distances, fuel consumption and prices, hotel.")
+print("The program calculates total trip cost (fuel + overnight stays) and travel time..")
 
 // MARK: - 2️⃣ Модель данных
 struct Location {
@@ -46,7 +46,7 @@ enum Command: String {
     case showTripTime              = "show trip time"
 
     static func from(_ string: String) -> Command? {
-        print("👉 Получено: '\(string)'")
+        print("📝 Получено: '\(string)'")
         return Command(rawValue: string.lowercased())
     }
 }
@@ -132,12 +132,12 @@ gameLoop: while true {
     case .calculareArrivalTime:
         let time = totalDistanceThere() / averageSpeed
         let arrival = calcArrivalTime(departure: departureElita, travelHours: time)
-        print("🚗 Прибытие в Кемерово: \(arrival)")
+        print("🚕💨 Прибытие в Кемерово: \(arrival)")
 
     case .calculareArrivalTimeBack:
         let time = totalDistanceBack() / averageSpeed
         let arrival = calcArrivalTime(departure: departureKemerovo, travelHours: time)
-        print("🚗 Прибытие в Элиту: \(arrival)")
+        print("🚕💨 Прибытие в Элиту: \(arrival)")
 
     case .addLocation:
         print("Введите название города:")
@@ -159,7 +159,7 @@ gameLoop: while true {
         print("⏰ Время в пути обратно: \(formatTravelTime(timeBack))")
 
     case .exit:
-        print("До свидания! 🚕💨")
+        print("By, bro! 🚕💨")
         break gameLoop
     }
 }
